@@ -23,7 +23,7 @@ export default function LoginPage() {
       router.push("/profile");
     } catch (error: any) {
       console.log("Login failed", error.message);
-      toast.error(error.message);
+      toast.error("Email or password is incorrect");
     } finally {
       setLoading(false);
     }
