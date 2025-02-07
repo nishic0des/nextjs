@@ -2,8 +2,10 @@
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function verifyEmailPage() {
+  const router = useRouter();
   const [token, setToken] = useState("");
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState(false);
@@ -27,6 +29,12 @@ export default function verifyEmailPage() {
       verifyUserEmail();
     }
   }, [token]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/login");
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
