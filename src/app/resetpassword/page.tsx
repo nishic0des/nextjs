@@ -45,33 +45,32 @@ export default function ResetPassword() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 container">
-      <div>
+      <div className="p-5 w-[400px] border border-gray-100 rounded-xl h-[300px] flex flex-col transition duration-500 delay-5000 ease-in-out hover:-translate-y-1 hover:shadow-gray-500 justify-center items-center hover:shadow-lg">
         <div>
-          <button className="text-primary underline-offset-4 hover:underline">
-            Token
-          </button>
+          <p className="p-2 mb-4 mr-10 ml-10 text-black border w-[200px] justify-center items-center text-center border-gray-900 rounded-lg bg-slate-700">
+            {token}
+          </p>
         </div>
         <div className="w-[300px] sm:w-[350px]">
-          <header className="spave-y-1">
-            <h1 className="2xl">Reset Password</h1>
-            <p>Enter new password</p>
-          </header>
-          <div className="grid gap-4">
+          <h1 className="text-3xl font-bold text-center decoration-none mb-4">
+            Reset Password
+          </h1>
+          <p className="ml-[60px]">Enter new password:</p>
+
+          <div className="flex flex-col p-3 m-4 mt-0 mb-0 ml-0 space-y-1 justify-center items-center">
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="p-2 border px-2 border-gray-300 ml-0 rounded-lg mb-4 bg-gray-700"
             />
             <button
               disabled={password.length > 0 ? false : true}
               onClick={changePassword}
+              className="p-2 mb-4 mr-10 ml-10 text-black border w-full border-gray-900 rounded-lg bg-slate-300 focus:outline:none focus:border-gray-400 hover:translate-y-1 hover:scale-105"
             >
-              {loading ? (
-                <svg className="animate-spin">Processing</svg>
-              ) : (
-                "Submit"
-              )}
+              {loading ? "Processing" : "Submit"}
             </button>
           </div>
         </div>

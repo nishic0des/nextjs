@@ -8,6 +8,8 @@ export function middleware(request: NextRequest) {
     path === "/" ||
     path === "/login" ||
     path === "/signup" ||
+    path === "/resetpassword" ||
+    path === "/verifyemail" ||
     path === "/forgotpassword";
   const token = request.cookies.get("token")?.value || "";
 
