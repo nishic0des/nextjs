@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
-
-export default function ResetPassword() {
+import { Suspense } from "react";
+function ResetPasswordComponent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [token, setToken] = useState("");
@@ -76,5 +76,12 @@ export default function ResetPassword() {
         </div>
       </div>
     </div>
+  );
+}
+export default function ResetPassword() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResetPasswordComponent />
+    </Suspense>
   );
 }
